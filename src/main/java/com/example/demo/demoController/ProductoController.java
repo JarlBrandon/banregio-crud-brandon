@@ -1,6 +1,7 @@
 package com.example.demo.demoController;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,6 +37,15 @@ public class ProductoController {
 	@ResponseBody
 	public List<Producto> findAllProductos(){
 		return productoService.findAllProducts();
+	}
+	
+	@CrossOrigin
+	@ApiOperation(value="Consulta un producto por id",notes="Regresa el producto correspondiente "
+			+ "al id ingresado.")
+	@GetMapping(value = "/{id}")
+	@ResponseBody
+	public Optional<Producto> findById(@PathVariable("id")int id){
+		return productoService.findById(id);
 	}
 		
 	@CrossOrigin

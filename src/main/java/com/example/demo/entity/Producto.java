@@ -32,6 +32,16 @@ public class Producto implements Serializable{
 	@Column(name = "pro_nombre")
 	private String pro_nombre;
 	
+	public Producto(int pro_idprod, String pro_nombre, double pro_precio, String pro_descri) {
+		this.pro_idprod = pro_idprod;
+		this.pro_nombre = pro_nombre;
+		this.pro_precio = pro_precio;
+		this.pro_descri = pro_descri;
+	}
+	public Producto() {
+		
+	}
+
 	@Column(name = "pro_precio")
 	private double pro_precio;
 	

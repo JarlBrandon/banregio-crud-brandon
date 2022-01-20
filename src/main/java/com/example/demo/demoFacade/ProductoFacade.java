@@ -1,6 +1,7 @@
 package com.example.demo.demoFacade;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,5 +30,12 @@ public class ProductoFacade {
 	@Transactional
 	public void deleteProducto(Integer id) {
 		productoRepository.deleteById(id);
+	}
+
+	@Transactional
+	public Optional<Producto> findById(Integer id) {
+		Optional<Producto> productoPorId = productoRepository.findById(id);
+		return productoPorId;
+		
 	}
 }
